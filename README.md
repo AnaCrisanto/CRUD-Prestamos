@@ -24,6 +24,7 @@ Este proyecto implementa un sistema CRUD (Crear, Leer, Actualizar, Eliminar) uti
   - [Contribuciones](#contribuciones)
   - [Licencia](#licencia)
   - [Contacto](#contacto)
+- [CRUD-PRESTAMOS-FASTAPI](#crud-prestamos-fastapi)
 
 ---
 
@@ -185,7 +186,7 @@ Si tienes preguntas o sugerencias, no dudes en contactarme:
 
 - **Nombre**: Alejandro Gonzalez Romero
 - **Correo electrónico**: gonzalez.romero.alejandroo@gmail.com
-- **GitHub**: [Tu perfil de GitHub](https://github.com/AlejandroRomero17)
+- **GitHub**: (https://github.com/AlejandroRomero17)
 
 ---
 # CRUD-PRESTAMOS-FASTAPI
