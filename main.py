@@ -17,7 +17,7 @@ app = FastAPI(
 # Configuración de CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Permite tu frontend en Vue
+    allow_origins=["https://main--prestamosana.netlify.app"],  # Permite tu frontend en Vue
     allow_credentials=True,
     allow_methods=["*"],  # Permite todos los métodos HTTP
     allow_headers=["*"],  # Permite todos los headers
