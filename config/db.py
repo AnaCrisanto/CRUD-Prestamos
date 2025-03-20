@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from passlib.context import CryptContext
 from dotenv import load_dotenv
 import os
 
@@ -10,17 +11,8 @@ load_dotenv()
 # Obtener la URL de conexión desde las variables de entorno
 SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
-# Crear el motor de la base de datos con los parámetros SSL adecuados
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL,
-    connect_args={
-        "ssl": {
-            "ssl_ca": "path_to_ca_certificate.pem",  # Asegúrate de poner la ruta del certificado CA
-            "ssl_cert": "path_to_client_cert.pem",    # Si es necesario, pon la ruta del certificado del cliente
-            "ssl_key": "path_to_client_key.pem",      # Si es necesario, pon la ruta de la clave del cliente
-        }
-    }
-)
+# Crear el motor de la base de datos
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 # Crear una fábrica de sesiones locales
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
