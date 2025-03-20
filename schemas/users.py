@@ -5,12 +5,15 @@ from datetime import datetime
 class UserBase(BaseModel):
     nombre: str
     primer_apellido: str
-    segundo_apellido: str
+    segundo_apellido: str | None
     tipo_usuario: str
     nombre_usuario: str
     correo_electronico: str
     contrasena: str
-    numero_telefono: str
+    numero_telefono: str | None
+
+    def normalize(self):
+        self.tipo_usuario = self.tipo_usuario.upper()
 
 class UserCreate(UserBase):
     pass
