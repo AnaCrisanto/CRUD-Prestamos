@@ -22,7 +22,7 @@ class User(Base):
     id = Column(Integer, primary_key=True, autoincrement=True, index=True, comment="ID único del usuario")
     nombre = Column(String(60), nullable=False, comment="Nombre del usuario")
     primer_apellido = Column(String(60), nullable=False, comment="Primer apellido del usuario")
-    segundo_apellido = Column(String(60), nullable=True, comment="Segundo apellido del usuario (opcional)")
+    segundo_apellido = Column(String(60), nullable=False, default="", comment="Segundo apellido del usuario (opcional)")
     tipo_usuario = Column(Enum(TipoUsuario), nullable=False, comment="Tipo de usuario (Alumno, Profesor, etc.)")
     nombre_usuario = Column(String(60), nullable=False, unique=True, comment="Nombre de usuario único")
     correo_electronico = Column(String(100), nullable=False, unique=True, comment="Correo electrónico del usuario")
