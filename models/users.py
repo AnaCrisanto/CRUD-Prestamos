@@ -13,15 +13,6 @@ class TipoUsuario(str, enum.Enum):
     DIRECTIVO = "Directivo"
     ADMINISTRATIVO = "Administrativo"
 
-class Estatus(str, enum.Enum):
-    """
-    Enumerador para los estados posibles de un usuario.
-    """
-    ACTIVO = "Activo"
-    INACTIVO = "Inactivo"
-    BLOQUEADO = "Bloqueado"
-    SUSPENDIDO = "Suspendido"
-
 class User(Base):
     """
     Modelo SQLAlchemy para representar usuarios en la base de datos.
@@ -37,7 +28,6 @@ class User(Base):
     correo_electronico = Column(String(100), nullable=False, unique=True, comment="Correo electrónico del usuario")
     contrasena = Column(String(128), nullable=False, comment="Contraseña cifrada del usuario")
     numero_telefono = Column(String(20), nullable=True, comment="Número de teléfono del usuario (opcional)")
-    estatus = Column(Enum(Estatus), nullable=False, default=Estatus.ACTIVO, comment="Estado actual del usuario")
     fecha_registro = Column(DateTime, default=func.now(), nullable=False, comment="Fecha de creación del registro")
     fecha_actualizacion = Column(DateTime, nullable=True, onupdate=func.now(), comment="Fecha de última actualización")
 

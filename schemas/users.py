@@ -11,7 +11,6 @@ class UserBase(BaseModel):
     correo_electronico: str
     contrasena: str
     numero_telefono: str
-    estatus: str
 
 class UserCreate(UserBase):
     pass
@@ -25,4 +24,11 @@ class User(UserBase):
     fecha_actualizacion: Optional[datetime] = None
 
     class Config:
-        from_attributes = True  # Cambio de orm_mode a from_attributes (Pydantic v2)
+        from_attributes = True
+
+# Esquema para autenticación
+class UserLogin(BaseModel):
+    username: Optional[str] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    password: str
